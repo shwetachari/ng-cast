@@ -1,8 +1,13 @@
 angular.module('video-player')
-.controller(function($scope) {
-  $scope.videoPlaying = window.exampleVideoData[0];
-  // {id: {videoId: ''}, snippet: {title: '', description: '', thumbnails: {default: {url:''}}}}
+.controller('appCtrl', function($scope) {
+  $scope.videoPlaying;
+  $scope.$watch('videoPlaying', function(newVideo, oldVideo) {
+    $scope.$broadcast('videoChanged', newVideo);
+  });
 })
 .component('app', {
+  bindings: {
+    video: '<'
+  },
   templateUrl: 'src/templates/app.html'
 });

@@ -4,9 +4,9 @@ angular.module('video-player')
   $scope.videos = window.exampleVideoData;
 
   $scope.handleClick = (index) => {
-    console.log($scope.videos[index]);
-    // $parent.videoPlaying = $scope.videos[index];
-  }
+    $scope.$parent.$parent.videoPlaying = $scope.videos[index];
+
+  };
 })
 
 .component('videoList', {

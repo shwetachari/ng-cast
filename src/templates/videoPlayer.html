@@ -1,6 +1,6 @@
-<div class="video-player">
+<div class="video-player" ng-controller="videoPlayerCtrl">
   <div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/1w8Z0UOXVaY" allowFullScreen></iframe>
+    <iframe class="embed-responsive-item" ng-src="{{'https://www.youtube.com/embed/' + videoPlaying.id.videoId}}" allowFullScreen></iframe>
   </div>
   <div class="video-player-details">
     <h3>Video Title</h3>

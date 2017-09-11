@@ -1,4 +1,4 @@
-<div id="app container">
+<div id="app container" ng-controller="appCtrl">
   <nav class="navbar">
     <div class="col-md-6 col-md-offset-3">
       <search><h5><em>search</em> component goes here</h5></search>
@@ -6,7 +6,7 @@
   </nav>
   <div class="row">
     <div class="col-md-7">
-      <video-player><h5><em>videoPlayer</em> component goes here</h5></video-player>
+      <video-player video={{videoPlaying}}><h5><em>videoPlayer</em> component goes here</h5></video-player>
     </div>
     <div class="col-md-5">
       <video-list><h5><em>videoList</em> component goes here</h5></video-list>
