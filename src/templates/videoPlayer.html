@@ -1,9 +1,9 @@
 <div class="video-player" ng-controller="videoPlayerCtrl">
   <div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" ng-src="{{'https://www.youtube.com/embed/' + videoPlaying.id.videoId}}" allowFullScreen></iframe>
+    <iframe class="embed-responsive-item" ng-src="{{'https://www.youtube.com/embed/' + videoPlaying.id + '?autoplay=' + $ctrl.autoplay}}" allowFullScreen></iframe>
   </div>
   <div class="video-player-details">
     <h3>{{videoPlaying.snippet.title}}</h3>
-    <div>{{videoPlaying.snippet.description}}</div>
+    <div style="white-space: pre-wrap;">{{videoPlaying.snippet.description}}</div>
   </div>
 </div>

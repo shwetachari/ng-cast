@@ -5,5 +5,8 @@ angular.module('video-player')
   });
 })
 .component('videoPlayer', {
+  bindings: {
+    autoplay: '<'
+  },
   templateUrl: 'src/templates/videoPlayer.html'
 });

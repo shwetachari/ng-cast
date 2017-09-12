@@ -33,4 +33,33 @@ angular.module('video-player')
     };
     this.getVideos(data, 'search', renderList);
   };
+
+  this.getDescription = function(id, $scope) {
+    var data = {
+      'id': id,
+      'maxResults': '1',
+      'key': window.YOUTUBE_API_KEY,
+      'part': 'snippet,contentDetails,statistics',
+    };
+    var renderList = function(data) {
+      $scope.videoPlaying = data[0];
+      $scope.$broadcast('videoChanged', $scope.videoPlaying);
+    };
+    this.getVideos(data, 'videos', renderList);
+  };
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
