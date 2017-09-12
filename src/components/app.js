@@ -1,16 +1,7 @@
 angular.module('video-player')
 .controller('appCtrl', function($scope, youTube) {
   $scope.videos;
-  youTube.getVideos({
-    'q': '',
-    'maxResults': '5',
-    'key': window.YOUTUBE_API_KEY,
-    'type': 'video',
-    'part': 'snippet',
-    'videoEmbeddable': 'true'
-  }, 'search', function(data) {
-    $scope.videos = data;
-  });
+  youTube.searchYoutube('', $scope);
   
   $scope.videoPlaying;
   $scope.$watch('videoPlaying', function(newVideo, oldVideo) {
@@ -18,22 +9,7 @@ angular.module('video-player')
   });
   
   $scope.$on('makeAjaxRequest', function(event, searchString) {
-    //define our data query object
-    var data = {
-      'q': searchString,
-      'maxResults': '5',
-      'key': window.YOUTUBE_API_KEY,
-      'type': 'video',
-      'part': 'snippet',
-      'videoEmbeddable': 'true'
-    };
-    //define our callback
-    var renderList = function(data) {
-      $scope.videos = data;
-    };
-    //pass those as parameters into our ajax request
-    youTube.getVideos(data, 'search', renderList);
-    //trigger downwards event to rerender videolist?
+    youTube.searchYoutube(searchString, $scope);
   });
 })
 

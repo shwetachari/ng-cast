@@ -9,7 +9,6 @@ angular.module('video-player')
 
   $scope.handleClick = (index) => {
     $scope.$parent.$parent.videoPlaying = $scope.videos[index];
-
   };
 })
 

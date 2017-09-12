@@ -18,4 +18,19 @@ angular.module('video-player')
       }).catch((error) => console.log('error', error)); 
     }
   };
+  
+  this.searchYoutube = function(searchString, $scope) {
+    var data = {
+      'q': searchString,
+      'maxResults': '5',
+      'key': window.YOUTUBE_API_KEY,
+      'type': 'video',
+      'part': 'snippet',
+      'videoEmbeddable': 'true'
+    };
+    var renderList = function(data) {
+      $scope.videos = data;
+    };
+    this.getVideos(data, 'search', renderList);
+  };
 });
