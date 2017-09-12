@@ -1,6 +1,6 @@
 <li class="video-list-entry media" ng-repeat="video in $parent.videos">
   <div class="media-left">
-    <img class="media-object" src={{video.snippet.thumbnails.default.url}} />
+    <img class="media-object" ng-src={{video.snippet.thumbnails.default.url}} />
   </div>
   <div class="media-body">
     <div class="video-list-entry-title" ng-click="$parent.$parent.handleClick($index)">{{ video.snippet.title }}</div>
