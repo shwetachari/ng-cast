@@ -1,10 +1,22 @@
 angular.module('video-player')
 .controller('appCtrl', function($scope, youTube) {
-  $scope.videos = window.exampleVideoData;
+  $scope.videos;
+  youTube.getVideos({
+    'q': '',
+    'maxResults': '5',
+    'key': window.YOUTUBE_API_KEY,
+    'type': 'video',
+    'part': 'snippet',
+    'videoEmbeddable': 'true'
+  }, 'search', function(data) {
+    $scope.videos = data;
+  });
+  
   $scope.videoPlaying;
   $scope.$watch('videoPlaying', function(newVideo, oldVideo) {
     $scope.$broadcast('videoChanged', newVideo);
   });
+  
   $scope.$on('makeAjaxRequest', function(event, searchString) {
     //define our data query object
     var data = {
@@ -21,6 +33,7 @@ angular.module('video-player')
     };
     //pass those as parameters into our ajax request
     youTube.getVideos(data, 'search', renderList);
+    //trigger downwards event to rerender videolist?
   });
 })
 .component('app', {

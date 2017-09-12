@@ -8,14 +8,9 @@ angular.module('video-player')
       headers: {
         'Content-Type': 'application/json',   
       },
-      data: dataQuery
+      params: dataQuery
     }).then((response) => {
-      console.log('initial response', response.data);
-      // if (response.ok) {        
-      //   return response.data;
-      // } else {
-      //   console.log('OH NO!!!!! ERROR!!!');
-      // }
+      callback(response.data.items);
     }).catch((error) => console.log('error', error));
   };
 });
