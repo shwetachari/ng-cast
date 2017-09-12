@@ -36,6 +36,7 @@ angular.module('video-player')
     //trigger downwards event to rerender videolist?
   });
 })
+
 .component('app', {
   bindings: {
     video: '<'
